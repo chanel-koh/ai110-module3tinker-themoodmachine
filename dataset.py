@@ -23,6 +23,7 @@ POSITIVE_WORDS = [
     "chill",
     "relaxed",
     "amazing",
+    "emoji_joy",    # 😂 — laughter/hype in this dataset
 ]
 
 NEGATIVE_WORDS = [
@@ -36,6 +37,7 @@ NEGATIVE_WORDS = [
     "stressed",
     "hate",
     "boring",
+    "emoji_skull",  # 💀 — "I'm dead" slang; negative in this dataset
 ]
 
 # ---------------------------------------------------------------------
@@ -44,12 +46,18 @@ NEGATIVE_WORDS = [
 
 # Short example posts written as if they were social media updates or messages.
 SAMPLE_POSTS = [
-    "I love this class so much",
-    "Today was a terrible day",
-    "Feeling tired but kind of hopeful",
-    "This is fine",
-    "So excited for the weekend",
-    "I am not happy about this",
+    "I love this class soooo much!", # easy: everything is pos
+    "Today was a terrible day", # easy
+    "Feeling tired but kind of hopeful", # mixed
+    "This is fine", # mixed
+    "So excited for the weekend", # easy: everything pos
+    "I am not happy about this", #easy
+    
+    "This party was awesome",
+    "This thing sucks",
+    "Lowkey loving the energy but highkey tired 😅", #mixed, copilot
+    "No cap, this is the best day ever 😂", #easy, copilot
+    "I’m dead 💀 that test was so long", # easy, copilot
 ]
 
 # Human labels for each post above.
@@ -65,9 +73,15 @@ TRUE_LABELS = [
     "neutral",   # "This is fine"
     "positive",  # "So excited for the weekend"
     "negative",  # "I am not happy about this"
+
+    "positive", # "This party was awesome"
+    "negative", # "This thing sucks"
+    "mixed", # "Lowkey loving the energy but highkey tired 😅" #mixed, copilot
+    "positive", # "No cap, this is the best day ever 😂" #easy, copilot
+    "negative", # "I’m dead 💀 that test was so long" # easy, copilot
 ]
 
-# TODO: Add 5-10 more posts and labels.
+# Add 5-10 more posts and labels.
 #
 # Requirements:
 #   - For every new post you add to SAMPLE_POSTS, you must add one
@@ -89,6 +103,22 @@ TRUE_LABELS = [
 #
 # SAMPLE_POSTS.append("Lowkey stressed but kind of proud of myself")
 # TRUE_LABELS.append("mixed")
-#
+
+SAMPLE_POSTS.append("Lowkey stressed but kind of proud of myself")
+TRUE_LABELS.append("mixed")
+
+SAMPLE_POSTS.append("Messi is legit the best player in the world cup rn")
+TRUE_LABELS.append("neutral")
+
+SAMPLE_POSTS.append("Morocco won the penalty shootout!")
+TRUE_LABELS.append("positive")
+
+SAMPLE_POSTS.append("Ugh why is this team lowkey not it")
+TRUE_LABELS.append("negative")
+
+SAMPLE_POSTS.append("Happy I get to watch the world cup but sad I'm not watching in person")
+TRUE_LABELS.append("mixed")
+
+
 # Remember to keep them aligned:
-#   len(SAMPLE_POSTS) == len(TRUE_LABELS)
+print(len(SAMPLE_POSTS) == len(TRUE_LABELS))

@@ -62,16 +62,16 @@ def run_interactive_loop() -> None:
     """
     Let the user type their own sentences and see the predicted mood.
 
-    Type 'quit' or press Enter on an empty line to exit.
+    Type 'exit' or press Enter on an empty line to exit.
     """
     analyzer = MoodAnalyzer()
     print("\n=== Interactive Mood Machine (rule based) ===")
     print("Type a sentence to analyze its mood.")
-    print("Type 'quit' or press Enter on an empty line to exit.\n")
+    print("Type 'exit' or press Enter on an empty line to exit.\n")
 
     while True:
         user_input = input("You: ").strip()
-        if user_input == "" or user_input.lower() == "quit":
+        if user_input == "" or user_input.lower() == "exit":
             print("Goodbye from the Mood Machine.")
             break
 
